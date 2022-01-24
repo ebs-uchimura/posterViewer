@@ -1,0 +1,11 @@
+/**
+ * err.css
+ *
+ * 機能：エラー表示ページスタイルシート
+ **/
+
+/* タグ */
+body {
+	margin: 10px 0 0 10px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}

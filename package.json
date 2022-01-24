@@ -1,0 +1,21 @@
+{
+  "name": "posterViewer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "mysql2": "^2.1.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "main": "app.js",
+  "keywords": [],
+  "author": "Koichi Uchimura",
+  "license": "ISC",
+  "description": ""
+}

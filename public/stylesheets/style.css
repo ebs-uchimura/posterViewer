@@ -1,0 +1,215 @@
+/**
+ * style.css
+ *
+ * 機能：スタイルシートメイン
+ **/
+
+/* タグ */
+body {
+  width:1200px;
+  margin:0 auto;
+  padding: 0;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+  line-height: 1.5;
+  margin-top: 10px;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h3 {
+  margin: 10px 0 0 10px;
+  font-size: 1.1rem;
+}
+
+hr {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+img {
+  object-fit: contain;
+  width: 200px;
+  height: 280px;
+}
+
+thead {
+  background-color: #f0ffff;
+}
+
+#mainlogo {
+  padding-top: 10px;
+}
+
+#loaded {
+  margin-left: 250px;
+}
+
+.original {
+  font-size: 0.4rem;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.man_list {
+  width: 263px;
+}
+.man_list li {
+  margin: 10px 30px 0 20px;
+}
+.man_table {
+  width: 200px;
+  margin: 0px 20px 0 20px;
+  border-collapse: collapse;
+  border: solid 1px #000000;
+}
+.man_table tr td {
+  height: 25px;
+  border: solid 1px #000000;
+  padding: 0 10px;
+}
+.pname {
+  font-size: 0.5rem;
+}
+.sname {
+  font-size: 0.8rem;
+}
+/* フォント関係 */
+.red {
+  color: red;
+}
+
+.b {
+  font-weight: bold;
+}
+
+/* レイアウト */
+#A {
+  height:60px;
+  background-color:#ffffff;
+}
+#B{
+  width:250px;
+  min-height:1000px;
+  height:auto;
+  background-color:#ffffff;
+  float:left;
+  margin-top:0px;
+  position: fixed;
+}
+#C { 
+  margin-left:260px;
+  width:940px;
+  min-height:1000px;
+  height:auto;
+  background-color:#ffffff;
+  margin-top:10px;
+}
+#D { 
+  margin-top:10px;
+  width:1200px;
+  height:100px;
+  background-color:#ffffff;
+  font-size: 0.8rem;
+}
+.big {
+  font-size: 2rem;
+}
+.small {
+  font-size: 0.8rem;
+}
+.item {
+  margin-bottom: 30px;
+}
+.pad {
+  margin-left: 450px;
+}
+#C h2 {
+  margin-left: 30px;
+  padding-top: 10px;
+}
+/* 検索ボックス */
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  width: 265px;
+  overflow: hidden;
+}
+.search_container input[type="text"]{
+  border: none;
+  height: 2.0em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: #3879D9;
+  color: #fff;
+  position: absolute;
+  width: 3.5em;
+  height: 3.0em;
+  right:0px;
+  top: -3px;
+  outline : none;
+}
+#searchbox {
+  margin-left: 5px;
+}
+
+.sample input[type="submit"]{
+  border:none;background:#FFF;text-decoration:underline;color:#00f;
+}
+.sample input:hover{
+  cursor:pointer;
+}

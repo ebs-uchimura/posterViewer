@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>posters list</title>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,nofollow">
+    <link rel='stylesheet' href='/stylesheets/reset.min.css'>
+    <link rel="stylesheet" href="/stylesheets/zoom.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel="stylesheet"　href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script charset="utf8mb4_bin" src="/javascripts/func.js"></script>
+    <script src="/libs/jquery-3.5.1.min.js"></script>
+    <script src="/libs/zoom.js"></script>
+    <script type="text/babel" src="/libs/transition.js"></script>
+  </head>
+  <body>
+    <nav id="B">
+      <h1><a href="/"><span class="h_txt">&emsp;poster list</span></a></h1>
+      <form action="/search1" id="searchbox" method="get">
+        <h3>search posters</h3>
+        <hr>
+        <p>title</p><input type="text" name="title" size="20" maxlength="20">
+        <input type="submit" value="search">
+      </form>
+      <form action="/search2" id="searchbox" method="get">
+        <p>management no</p><input type="text" name="sort_no" size="10" maxlength="20">
+        <input type="submit" value="search">
+      </form>
+      <form action="/search3" id="searchbox" name="typebox" method="get">
+        <p>type</p>
+        <input type="radio" name="type" onchange="func1()" value="1">shochu
+        <input type="radio" name="type" onchange="func1()" value="2">wine
+        <input type="radio" name="type" onchange="func1()" value="3">whisky
+        <input type="radio" name="type" onchange="func1()" value="4">liquor
+        <input type="radio" name="type" onchange="func1()" value="5">DRY
+      </form>
+      <form action="/search4" id="searchbox" name="yearbox" method="get">
+        <p>made</p>
+        <select name="year" onchange="func2()">
+          <option value="">-</option> <option value="2020">2020</option> <option value="2019">2019</option> <option value="2018">2018</option> <option value="2017">2017</option> <option value="2016">2016</option> <option value="2015">2015</option> 
+        </select> 
+      </form>
+      <form action="/search5" id="searchbox" name="annivbox" method="get">
+        <p>anniversary</p>
+        <input type="radio" name="anniversary" onchange="func3()" value="1">yes
+        <input type="radio" name="anniversary" onchange="func3()" value="0">no
+      </form>
+      <form action="/search6" id="searchbox" name="fixbox" method="get">
+        <p>standard/non-standard</p>
+        <input type="radio" name="fixed" onchange="func4()" value="0">standard
+        <input type="radio" name="fixed" onchange="func4()" value="1">standard
+      </form>
+      <form action="/search7" id="searchbox" name="keywordbox" method="get">
+        <p>keyword</p><input type="text" name="keyword" size="20" maxlength="20">
+        <input type="submit" value="search">
+      </form>
+      <h3>keyword</h3>
+      <hr>
+      <ul>
+        <li>
+          <form action="/search7" id="searchbox" name="keywordbox" method="get">
+            <input name="keyword" type="hidden" value="">
+            <input type="submit" value="celebration">
+          </form>
+        </li>
+        <form action="/search7" id="searchbox" name="keywordbox" method="get">
+            <input name="keyword" type="hidden" value="celebration">
+            <input type="submit" value="memorial">
+          </form>
+        </li>
+        <form action="/search7" id="searchbox" name="keywordbox" method="get">
+            <input name="keyword" type="hidden" value="yearend">
+            <input type="submit" value="yearend">
+          </form>
+        </li>
+      </ul>
+    </nav>
+     
+    <main id="C">
+      <h3><span class="big">novelty</span><span class="small pad">※out of list is <span class="red b">non-standard</span></span></h3>
+      <hr>
+      <div class="forload">
+        <div class="flex">
+          <% data.forEach(function(val, i){ %>
+          <section id="<%= Math.floor(i/50) %>" class="page">
+            <% if(val.fixed == 0) { %>
+            <div class="item flex">
+              <img src="<%= val.file_path %>" alt="" data-action="zoom">
+              <table class="man_table">
+                <caption><%= val.title %></caption>
+                <thead>
+                  <tr>
+                    <td class="pname"><b>ID:<%= val.ID %></b></td>
+                    <td class="pname"><b>original label</b></td>
+                    <td class="pname"><b>private label</b></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="pname">poster</td>
+                    <td class="sname"><%= man_no[i][0] %></td>
+                    <td class="sname"><%= man_no[i][1] %></td>
+                  </tr>
+                  <tr>
+                    <td class="pname">menu</td>
+                    <td class="sname"><%= man_no[i][1] %></td>
+                    <td class="sname"><%= man_no[i][2] %></td>
+                  </tr>
+                  <tr>
+                    <td class="pname">stand</td>
+                    <td class="sname"><%= man_no[i][2] %></td>
+                    <td class="sname"><%= man_no[i][3] %></td>
+                  </tr>
+                  <tr>
+                    <td class="pname">others</td>
+                    <td class="sname"><%= man_no[i][4] %></td>
+                    <td class="sname"><%= man_no[i][5] %></td>
+                  </tr>
+                  <tr>
+                    <td class="pname" colspan="3">made in：<b><%= val.man_date %></b></td>
+                  </tr>
+                  <tr>
+                    <td class="pname" colspan="3"><%= val.file %></td>
+                  </tr>
+                  <tr>
+                    <td class="original" colspan="3">file path：<textarea rows="3" cols="25" onfocus="this.select();"><%= val.original_file_path %></textarea></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p></p>
+            </div>
+            <% } else { %>
+            <div class="item flex">
+              <img src="<%= val.file_path %>" alt="" data-action="zoom">
+              <ul class="man_list">
+                <li><b><%= val.title %></b></li>
+                <li class="red b">non-standard</li>
+                <li class="sname">made in：<b><%= val.man_date %>年</b></li>
+                <li class="sname"><%= val.file %></li>
+                <li class="original">file path：<textarea rows="4" cols="30" onfocus="this.select();"><%= val.original_file_path %></textarea></li>
+              </ul>
+            </div>
+            <% } %>
+          </section>
+          <% }) %>
+        </div>
+      </div>
+    </main>
+    
+    <script>
+      var times = 0; // searched times
+      var scroll_flg = false; // scroll flg
+      var init_flg = true; // ignite flg
+      var SCROLL_HEIGHT = 2000; // scroll height
+
+      $(function(){
+        var title = $("[name=title]"); // title box
+        var man_no = $("[name=sort_no]"); // man no box
+        var types = $("[name=type]"); // type
+        var year = $("[name=year]"); // made in
+        var annivs = $("[name=anniversary]"); // anniversary
+        var fixes = $("[name=fixed]"); // standard/non-standard
+        // searched history
+        if("<%= data[0] %>") {
+          switch ("<%= no %>") {
+            case '1':
+              title.val("<%= ori %>"); // title
+              break;
+            case '2':
+              man_no.val("<%= ori %>"); // man no
+              break;
+            case '3':
+              types[Number("<%= data[0].ganre_id %>")-1].checked = true; // alchohol type
+              break;
+            case '4':
+              year.val(Number("<%= data[0].man_date %>")); // made in
+              break;
+            case '5':
+	            var anniv = Number("<%= ori %>"); // anniversary
+							anniv = (anniv === 1) ? 0 : 1;
+              annivs[anniv].checked = true;
+              break;
+            case '6':
+              fixes[Number("<%= data[0].fixed %>")].checked = true; // non-standard
+              break;
+          }
+        }
+          // get original position
+        var posBf = $(window).scrollTop();
+        
+        $(window).scroll(function(){
+          // get position after scroll
+          var posAf = $(this).scrollTop();
+
+          // only scroll below
+          if(init_flg && posAf > posBf && posBf > SCROLL_HEIGHT * (times + 1)) {
+            scroll_flg = false; // scroll control flg
+            init_flg = false; // ignite flt
+          }
+          if(!scroll_flg && posAf > posBf) {
+            scroll_flg = true; // scroll control flg
+            times++; // increment
+            // GET request
+            $.get(location.href, {ori: "<%= ori %>", times: times}, function(data) {
+              // extract DOM 
+              if(data) {
+                var split_data = data.split('<div class="forload">'); // split data
+                if(split_data[1]) {
+                  var split_data2 = split_data[1].split('<footer id="D">'); // split data
+                  if(split_data2[0]) {
+                    var origin_data = '<div id="loaded">' + split_data2[0] + '</div>'; // split data
+                    var dom_data = $(origin_data); // get DOM
+                    $('body').append(dom_data); // add DOM
+                    init_flg = true; // ignite flg ON
+                  }
+                } 
+              }
+            });  
+          }
+          // make original postion to scrolled position
+          posBf = posAf;
+        });
+      });
+    </script>
+  </body>
+</html>
